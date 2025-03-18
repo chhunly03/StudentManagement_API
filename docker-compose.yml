@@ -1,0 +1,36 @@
+services:
+  wildlife-conservation-db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: wildlife_conservation_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "1111@2222@"
+    volumes:
+      - wildlife-conservation-db-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - wildlife-conservation-network
+
+  wildlife-conservation-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080" #8088 is port u said in application.yml 8081 is port external
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://wildlife-conservation-db:5432/wildlife_conservation_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: "1111@2222@"
+    depends_on:
+      - wildlife-conservation-db
+    networks:
+      - wildlife-conservation-network
+
+volumes:
+  wildlife-conservation-db-data:
+networks:
+  wildlife-conservation-network:
+    driver: bridge
