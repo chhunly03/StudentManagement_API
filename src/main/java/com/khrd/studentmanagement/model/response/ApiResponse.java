@@ -6,6 +6,7 @@ import lombok.*;
 import org.springframework.http.HttpStatus;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,5 +20,4 @@ public class ApiResponse<T> {
     private Integer statusCode;
     private HttpStatus httpStatus;
     private Timestamp timestamp;
-
 }

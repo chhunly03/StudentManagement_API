@@ -3,7 +3,6 @@ package com.khrd.studentmanagement.controller;
 import com.khrd.studentmanagement.exception.NotFoundException;
 import com.khrd.studentmanagement.jwt.JwtService;
 import com.khrd.studentmanagement.model.entity.Admin;
-import com.khrd.studentmanagement.model.entity.Role;
 import com.khrd.studentmanagement.model.request.AdminRequest;
 import com.khrd.studentmanagement.model.request.AuthRequest;
 import com.khrd.studentmanagement.model.request.UpdateAdminRequest;
@@ -37,7 +36,7 @@ import java.util.UUID;
 @SecurityRequirement(name = "bearerAuth")
 @RequestMapping("/api/v1/auth")
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:3001"})
+@CrossOrigin(origins = "http://localhost:3000")
 
 public class AuthController {
     private final AdminService adminService;
@@ -179,31 +178,5 @@ public class AuthController {
             return ResponseEntity.ok(response);
         }
     }
-
-    @GetMapping("/email")
-    public ResponseEntity<ApiResponse<StudentResponse>>forgetPassword(@PathVariable String email, String password) {
-        StudentResponse admin = adminService.forgetPassword(email,password);
-        if (admin!=null) {
-            ApiResponse<StudentResponse> response = ApiResponse.<StudentResponse>builder()
-                    .message("Admin updated successfully")
-                    .statusCode(HttpStatus.OK.value())
-                    .httpStatus(HttpStatus.OK)
-                    .payload(admin)
-                    .timestamp(new Timestamp(System.currentTimeMillis()))
-                    .build();
-            return ResponseEntity.ok(response);
-        }else {
-            ApiResponse<StudentResponse> response = ApiResponse.<StudentResponse>builder()
-                    .message("Admin not update success")
-                    .statusCode(HttpStatus.BAD_REQUEST.value())
-                    .httpStatus(HttpStatus.BAD_REQUEST)
-                    .payload(admin)
-                    .timestamp(new Timestamp(System.currentTimeMillis()))
-                    .build();
-            return ResponseEntity.ok(response);
-        }
-    }
-
-
 }
 

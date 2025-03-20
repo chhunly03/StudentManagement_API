@@ -4,8 +4,6 @@ import com.khrd.studentmanagement.model.entity.ChatMessage;
 import com.khrd.studentmanagement.model.entity.Message;
 import com.khrd.studentmanagement.repository.MessageRepository;
 import org.springframework.stereotype.Service;
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 public class MessageService {

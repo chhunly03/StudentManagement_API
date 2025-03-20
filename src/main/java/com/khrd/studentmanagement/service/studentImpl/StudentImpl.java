@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class StudentImpl implements StudentService {
-    private final ModelMapper modelMapper;
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     private final AdminRepository adminRepository;
 

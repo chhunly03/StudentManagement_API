@@ -4,10 +4,7 @@ import com.khrd.studentmanagement.model.entity.Message;
 import com.khrd.studentmanagement.model.response.ApiResponse;
 import com.khrd.studentmanagement.model.response.MessageDTO;
 import com.khrd.studentmanagement.repository.MessageRepository;
-import com.khrd.studentmanagement.service.MessageService;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -28,7 +25,7 @@ public class WebSocketController {
     @MessageMapping("/chat")
     @SendTo("/topic/messages")
     public Message handleMessage(MessageDTO messageDTO) {
-        System.out.println(messageDTO);
+        System.out.println("message dto: "+messageDTO);
         Message message = Message.builder()
                 .sender(messageDTO.getSender())
                 .receiver(messageDTO.getReceiver())

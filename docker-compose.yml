@@ -18,6 +18,7 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: always
+    container_name: student-api-container
     ports:
       - "8080:8080" #8088 is port u said in application.yml 8081 is port external
     environment:
@@ -28,7 +29,6 @@ services:
       - wildlife-conservation-db
     networks:
       - wildlife-conservation-network
-
 volumes:
   wildlife-conservation-db-data:
 networks:

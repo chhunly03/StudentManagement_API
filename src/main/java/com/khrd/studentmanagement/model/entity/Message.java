@@ -1,5 +1,6 @@
 package com.khrd.studentmanagement.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
