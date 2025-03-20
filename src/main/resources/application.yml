@@ -6,7 +6,7 @@ spring:
   application:
     name: StudentManagement
   datasource:
-    url: jdbc:postgresql://localhost:5433/wildlife_conservation_db
+    url: jdbc:postgresql://178.128.31.176:5433/wildlife_conservation_db
     database: wildlife_conservation_db
     username: postgres
     password: 1111@2222@

@@ -10,7 +10,6 @@ import java.util.Collections;
 import java.util.UUID;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -37,6 +36,9 @@ public class Admin implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+    public Admin(){
+
+    }
 
 
     @Override

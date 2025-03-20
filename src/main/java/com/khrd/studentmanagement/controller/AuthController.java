@@ -36,7 +36,7 @@ import java.util.UUID;
 @SecurityRequirement(name = "bearerAuth")
 @RequestMapping("/api/v1/auth")
 @AllArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 
 public class AuthController {
     private final AdminService adminService;

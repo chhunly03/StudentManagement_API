@@ -17,6 +17,7 @@ import java.util.UUID;
 @SecurityRequirement(name = "bearerAuth")
 @RequestMapping("/api/v1/students")
 @AllArgsConstructor
+@CrossOrigin
 public class StudentController {
     private final StudentService studentService;
 

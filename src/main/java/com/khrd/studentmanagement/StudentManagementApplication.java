@@ -18,6 +18,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         in = SecuritySchemeIn.HEADER
 )
 @SpringBootApplication
+
 public class StudentManagementApplication {
 
     public static void main(String[] args) {

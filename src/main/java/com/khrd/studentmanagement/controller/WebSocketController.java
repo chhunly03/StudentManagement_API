@@ -33,7 +33,7 @@ public class WebSocketController {
                 .type(messageDTO.getType())
                 .timestamp(messageDTO.getTimestamp())
                 .build();
-        return messageRepository.save(message);
+            return messageRepository.save(message);
     }
 
 
